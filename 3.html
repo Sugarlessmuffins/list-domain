@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Waline Comment Example</title>
+      <style>
+         @media (prefers-color-scheme: dark) {
+         body {
+         background-color: #0F172A;
+         color: #fff;
+         font-family: 'Mulish';
+         }
+         /* Adjust Waline theme colors for dark mode if necessary */
+         }
+         p {
+         color: #fff !important;
+         }
+         .wl-content code, .wl-content pre {
+         font-size: 100% !important;
+         }
+         summary::marker {
+         color: #382bf0;
+         font-size: 1.2em;
+         }
+         summary {
+         background-color: #121212;
+         color: white;
+         padding: 10px;
+         border-radius: 5px;
+         }
+         .wl-reaction-votes {
+         color: #fff  !important;
+         }
+         details[open] summary {border-radius: 5px 5px 5px 5px;}
+         details {
+         background: #282c34;
+         border-radius: 5px;
+         color: white
+         }
+         .spoiler-content {
+         color: white !important;
+         margin-left: 20px; 
+         margin-top: 10px;
+         padding-bottom:10px;
+         }
+         .wl-emoji {
+         width: 40px !important;
+         height: auto !important;
+         }
+         .button-container {
+         display: flex;
+         justify-content: center;
+         margin: 20px 0;
+         }
+         /* Styled button */
+         .comment-button {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 800px; /* Button width */
+         padding: 10px;
+         background-color: #1e1e1e; /* Button background color */
+         border: 2px dotted #6027DA; /* Dotted border */
+         font-size: 16px;
+         color: #fff;
+         text-align: center;
+         border-radius: 5px;
+         cursor: pointer;
+         text-decoration: none; /* Remove underline from anchor if used as a link */
+         }
+         .wl-badge.level0{
+            color:white !important;
+            border: 1px solid #FF0000 !important;
+            background-color: #FF0000 !important;
+
+         }
+         :root {
+         --waline-border: none;
+         -waline-box-shadow: 0 12px 40px rgb(134 151 168 / 25%);
+         --waline-font-size: 16px!important;
+         --waline-theme-color: #6027DA!important;
+         --waline-active-color: #6027DA!important;
+         --waline-color: #fff!important;
+         --waline-badge-color: #FF0000!important;
+         --waline-badge-font-size: 14px!important;
+         --waline-light-grey: #F4F3FF!important;
+         }
+         @media (prefers-color-scheme: dark) {
+         body {
+         --waline-box-shadow: 0 12px 40px #0f0e0d;
+         --waline-bg-color: #26324D!important;
+         --waline-color: #fff!important;
+         --waline-border-color: #fff!important;
+         --waline-white: #fff!important;
+         }
+         }
+         /* Responsive adjustments */
+         @media (max-width: 900px) {
+         .comment-button {
+         width: 90%; /* Adjust width for smaller screens */
+         }
+         }
+         /* Spoiler Box Pure CSS by IGNIEL.COM */
+.Spoiler {
+    display:block; margin:10px 0px; padding:7px 10px; 
+}
+.Spoiler .button {
+    background:#FF0000; /* Warna button */
+    color:#fff; /* Warna tulisan di button */
+    display:inline-block; cursor:pointer; font:normal 600 14px Tahoma,sans-serif; padding:0px; border:none; outline:none; line-height:10px; border-radius:3px; -moz-border-radius:3px; 
+}
+.Spoiler .button:focus {
+    pointer-events:none;
+}
+.Spoiler .button:before {
+    content:'This media may contain sensitive material.  [ View ]'; /* Tulisan untuk membuka button */
+    display:inline-block; padding:7px 10px; border-radius:3px; -moz-border-radius:3px;
+    font-size: 12px !important;
+}
+.Spoiler .button:focus::before {
+    content:'Close'; /* Tulisan untuk menutup button */
+    background:#6027DA;
+    font-size: 12px !important; /* Warna button ketika spoiler terbuka */
+}
+.Spoiler .isi {
+    background:transparent; /* Warna background isi spoiler */
+    pointer-events:auto; visibility:hidden; opacity:0; height:0px; transition:all .5s ease;
+}
+.Spoiler .button:focus + .isi {
+    visibility:visible; opacity:1; height:auto; margin:10px 0px 5px; padding:10px 15px; transition:all .5s ease;
+}
+      </style>
+   </head>
+   <body>
+    <!-- Comment Section Button -->
+    <div class="button-container">
+        <div class="comment-button" id="load-comments">
+            Klik untuk membuka komentar
+        </div>
+    </div>  
+
+    <!-- Container for Waline -->
+    <div id="waline" style="display:none;"></div>
+
+    <script src="v3.js" type="module"></script>
+   </body>
+</html>
