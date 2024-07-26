@@ -25,7 +25,7 @@ function loadComments() {
         init({
             el: '#waline',
             serverURL: 'https://komen.izanami.rest',
-            path: '/1',
+            path: '1',
             lang: 'en',
             dark: 'auto',
             locale: {
