@@ -25,11 +25,8 @@ page 3 has <span data-path="/3" class="waline-comment-count" /> comments.
   import { commentCount } from 'https://unpkg.com/@waline/client@v3/dist/comment.js';
 
   commentCount({
-    serverURL,
-    path,
-
-    // optional, for custom selectors, defaults to `'.waline-pageview-count'`
-    // selector: '.waline-pageview-count',
+    serverURL: 'https://cmt.shinigamiscans.com',
+    lang: 'en',
   });
 </script>
 </body>
