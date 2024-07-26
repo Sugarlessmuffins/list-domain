@@ -24,7 +24,7 @@ function loadComments() {
     import('https://cdn.jsdelivr.net/gh/sugarlessmuffins/walineclient@v0.0.2/dist/waline.js').then(({ init }) => {
         init({
             el: '#waline',
-            serverURL: 'https://cmt.shinigamiscans.com',
+            serverURL: 'https://komen.izanami.rest',
             path: '/2',
             lang: 'en',
             dark: 'auto',
