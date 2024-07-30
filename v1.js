@@ -28,6 +28,8 @@ function loadComments() {
             path: '1',
             lang: 'en',
             dark: 'auto',
+            meta: ['nick','mail'],
+            requiredMeta: ['nick','mail'],
             locale: {
                 nick: 'Nickname',
                 nickError: 'Nickname tidak boleh kurang dari 3 digit.',
