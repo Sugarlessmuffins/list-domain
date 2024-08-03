@@ -101,36 +101,61 @@
          width: 90%; /* Adjust width for smaller screens */
          }
          }
-         /* Spoiler Box Pure CSS by IGNIEL.COM */
-.Spoiler {
-    display:block; margin:10px 0px; padding:7px 10px; 
+$default-padding: 1rem 3rem;
+
+.spoiler{
+/*--------------------------------
+        Major styles begin
+--------------------------------*/
+  &__content{
+    display: none;
+  }
+  
+  input:checked ~ &__content{
+    display: block;
+  }
+/*--------------------------------
+         end Major styles
+--------------------------------*/
+  &>input {
+    display: none;
+  }
+  
+  &>label {
+    display: block;
+    box-sizing: border-box;
+    padding: $default-padding;
+    cursor: pointer;
+    border: 1px dotted grey;
+  }
+
+  input:checked + label>&__text:before{
+    content: "Hide spoiler";
+  }
+  
+  input:not(checked) + label>&__text:before{
+    content: "Show spoiler";
+  }
+  
+  &__icon{
+    float: right;
+  }
+  
+  input:not(checked) + label>&__icon:after{
+    content: "v";
+    transform: rotate(180deg);
+  }
+  
+  input:checked + label>&__icon{
+    transform: rotate(180deg);
+  }
+  
+  &__content{
+    padding: $default-padding;
+    background-color: lightgrey;
+  }
 }
-.Spoiler .button {
-    background:#FF0000; /* Warna button */
-    color:#fff; /* Warna tulisan di button */
-    display:inline-block; cursor:pointer; font:normal 600 14px Tahoma,sans-serif; padding:0px; border:none; outline:none; line-height:10px; border-radius:3px; -moz-border-radius:3px; 
-}
-.Spoiler .button:focus {
-    pointer-events:none;
-}
-.Spoiler .button:before {
-    content:'This media may contain sensitive material.  [ View ]'; /* Tulisan untuk membuka button */
-    display:inline-block; padding:7px 10px; border-radius:3px; -moz-border-radius:3px;
-    font-size: 12px !important;
-}
-.Spoiler .button:focus::before {
-    content:'Close'; /* Tulisan untuk menutup button */
-    background:#6027DA;
-    font-size: 12px !important; /* Warna button ketika spoiler terbuka */
-}
-.Spoiler .isi {
-    background:transparent; /* Warna background isi spoiler */
-    pointer-events:auto; visibility:hidden; opacity:0; height:0px; transition:all .5s ease;
-}
-.Spoiler .button:focus + .isi {
-    visibility:visible; opacity:1; height:auto; margin:10px 0px 5px; padding:10px 15px; transition:all .5s ease;
-}
-      </style>
+     </style>
    </head>
    <body>
     <!-- Comment Section Button -->
