@@ -103,58 +103,7 @@
          }
 $default-padding: 1rem 3rem;
 
-.spoiler{
-/*--------------------------------
-        Major styles begin
---------------------------------*/
-  &__content{
-    display: none;
-  }
-  
-  input:checked ~ &__content{
-    display: block;
-  }
-/*--------------------------------
-         end Major styles
---------------------------------*/
-  &>input {
-    display: none;
-  }
-  
-  &>label {
-    display: block;
-    box-sizing: border-box;
-    padding: $default-padding;
-    cursor: pointer;
-    border: 1px dotted grey;
-  }
 
-  input:checked + label>&__text:before{
-    content: "Hide spoiler";
-  }
-  
-  input:not(checked) + label>&__text:before{
-    content: "Show spoiler";
-  }
-  
-  &__icon{
-    float: right;
-  }
-  
-  input:not(checked) + label>&__icon:after{
-    content: "v";
-    transform: rotate(180deg);
-  }
-  
-  input:checked + label>&__icon{
-    transform: rotate(180deg);
-  }
-  
-  &__content{
-    padding: $default-padding;
-    background-color: lightgrey;
-  }
-}
      </style>
    </head>
    <body>
