@@ -113,7 +113,54 @@ function loadComments() {
     document.getElementById('waline').style.display = 'block';
 }
 
+// Function to add custom CSS
+function addCustomCSS(css) {
+    const style = document.createElement('style');
+    style.textContent = css;
+    document.head.appendChild(style);
+}
+
 // Attach event listener to button
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('load-comments').addEventListener('click', loadComments);
+
+    // Add spoiler CSS
+    addCustomCSS(`
+        .spoiler__content {
+            display: none;
+        }
+        .spoiler input:checked ~ .spoiler__content {
+            display: block;
+        }
+        .spoiler > input {
+            display: none;
+        }
+        .spoiler > label {
+            display: block;
+            box-sizing: border-box;
+            padding: var(--default-padding, 10px);
+            cursor: pointer;
+            border: 1px dotted grey;
+        }
+        .spoiler input:checked + label > .spoiler__text:before {
+            content: "Hide spoiler";
+        }
+        .spoiler input:not(:checked) + label > .spoiler__text:before {
+            content: "Show spoiler";
+        }
+        .spoiler__icon {
+            float: right;
+        }
+        .spoiler input:not(:checked) + label > .spoiler__icon:after {
+            content: "v";
+            transform: rotate(180deg);
+        }
+        .spoiler input:checked + label > .spoiler__icon {
+            transform: rotate(180deg);
+        }
+        .spoiler__content {
+            padding: var(--default-padding, 10px);
+            background-color: lightgrey;
+        }
+    `);
 });
