@@ -9,7 +9,7 @@ function loadCSS(href) {
 // Function to dynamically load the Waline comment system
 function loadComments() {
     // Load local Waline and Prism CSS
-    loadCSS('https://cdn.jsdelivr.net/gh/shinigamiscans/waline@v.1/waline-client/dist/waline.css');
+    loadCSS('https://cdn.jsdelivr.net/gh/shinigamiscans/waline@v.2/waline-client/dist/waline.css');
     loadCSS('https://unpkg.com/prismjs@v1/themes/prism-tomorrow.min.css');
     
     // Load fonts asynchronously
@@ -21,7 +21,7 @@ function loadComments() {
     document.body.appendChild(prismScript);
 
     // Dynamically import the local Waline script as a module
-    import('https://cdn.jsdelivr.net/gh/shinigamiscans/waline@v.1/waline-client/dist/waline.js').then(({ init }) => {
+    import('https://cdn.jsdelivr.net/gh/shinigamiscans/waline@v.2/waline-client/dist/waline.js').then(({ init }) => {
         init({
             el: '#waline',
             serverURL: 'https://hub.shngm.io',
